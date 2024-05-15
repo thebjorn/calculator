@@ -36,20 +36,12 @@
         [1, 2, 3, '*'],
         ['C', 0, null, '/']
     ]
-
-    /**
-     * 
-     * @param {string|null} op
-     */
-    function handle_operator(op) {
-        operator = op
-    }
 </script>
 
 <table>
     <thead>
         <tr>
-            <td id="sum" colspan="4">{sum}</td>
+            <td id="sum" colspan={keyboard[0].length}>{sum}</td>
         </tr>
     </thead>
     <tbody>
@@ -61,7 +53,7 @@
                 {:else if key === 'C'}
                     <td><button type="button" onclick={() => sum = 0}>C</button></td>
                 {:else if typeof key === 'string'}
-                    <td><button type="button" onclick={() => handle_operator(key)}>{key}</button></td>
+                    <td><button type="button" onclick={() => operator = key}>{key}</button></td>
                 {:else}
                     <td><button type="button" onclick={() => handle_number(key)}>{key}</button></td>
                 {/if}
