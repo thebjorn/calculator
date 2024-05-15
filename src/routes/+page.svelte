@@ -34,7 +34,7 @@
         [7, 8, 9, '+'],
         [4, 5, 6, '-'],
         [1, 2, 3, '*'],
-        [null, 0, null, '/']
+        ['C', 0, null, '/']
     ]
 
     /**
@@ -58,6 +58,8 @@
             {#each row as key}
                 {#if key === null}
                     <td></td>
+                {:else if key === 'C'}
+                    <td><button type="button" onclick={() => sum = 0}>C</button></td>
                 {:else if typeof key === 'string'}
                     <td><button type="button" onclick={() => handle_operator(key)}>{key}</button></td>
                 {:else}
@@ -73,7 +75,11 @@
     td {
         text-align: center;
         font-size: 30px;
-
+    }
+    thead td {
+        font-size: 50px;
+        border: 1px solid #999;
+        height: 2em;
     }
     button {
         height: 125px;
